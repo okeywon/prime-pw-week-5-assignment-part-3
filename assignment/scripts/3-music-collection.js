@@ -42,3 +42,23 @@ function findByArtist(artist) {
 
 console.log(findByArtist('U2'));
 console.log(findByArtist('Pink'));
+
+function search(name, year) {
+    let answer = [];
+    for (let i = 0; i < collection.length; i++) {
+        if (name === collection[i].artist) {
+            answer.push(collection[i].artist);
+        }
+        if (year === collection[i].yearPublished) {
+            answer.push(collection[i].yearPublished);
+        }
+        else if (name != collection[i].artist) {
+            answer.push();   
+        }
+        else if (year != collection[i].yearPublished) {
+            answer.push(); 
+        }
+    }   return answer;
+}
+
+console.log(search('U2', '1987'));
