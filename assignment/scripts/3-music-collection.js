@@ -32,7 +32,13 @@ function showCollection(array) {
 
 function findByArtist(artist) {
     let results = [];
-    for (items of collection) {
-        
-    }
+    for (let i = 0; i < collection.length; i++) {
+        if (artist === collection[i].artist) {
+            results.push(collection[i].artist);
+            return results;
+        }
+    } return [];
 }
+
+console.log(findByArtist('U2'));
+console.log(findByArtist('Pink'));
