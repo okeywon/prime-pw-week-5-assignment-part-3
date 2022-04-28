@@ -1,33 +1,38 @@
 console.log('***** Music Collection *****')
 
-let collection = {
-    title: '',
-    artist: '',
-    year: 0
+let collection = [];
+
+function addToCollection(title, artist, yearPublished) {
+    let album = {
+        title: title,
+        artist: artist,
+        yearPublished: yearPublished
+    }
+    collection.push(album);
+    return collection;
 }
 
-function addToCollection( title, artist, year ) {
-    return collection += [title, artist, year, "\n"];
-}
-
-(addToCollection("Hot Fuss", "The Killers", 2004));
-(addToCollection("Franz Ferdinand", "Franz Ferdinand", 2004));
-(addToCollection("The Joshua Tree", "U2", 1987));
-(addToCollection("Black Holes and Revelations", "Muse", 2006));
-(addToCollection("The Bends", "Radiohead", 1995));
-(addToCollection("The Blue Album", "Weezer", 1994));
+console.log(addToCollection("Hot Fuss", "The Killers", "2004"));
+console.log(addToCollection("Franz Ferdinand", "Franz Ferdinand", "2004"));
+console.log(addToCollection("The Joshua Tree", "U2", "1987"));
+console.log(addToCollection("Black Holes and Revelations", "Muse", "2006"));
+console.log(addToCollection("The Bends", "Radiohead", "1995"));
+console.log(addToCollection("The Blue Album", "Weezer", "1994"));
 
 console.log(collection);
 
 function showCollection(array) {
-    let title = array.title;
-    let artist = array.artist;
-    let year = array.year;
-    let i = 0;
-    for (items in array) {
-        console.log(`${title} by ${artist}, published in ${year}`);
-        i++;
-    }   return array;
+    console.log(array.length);
+    for (items of array) {
+        console.log(`${items.title} by ${items.artist}, published in ${items.yearPublished}`);
+    }
 } 
 
-console.log(showCollection(collection));
+(showCollection(collection));
+
+function findByArtist(artist) {
+    let results = [];
+    for (items of collection) {
+        
+    }
+}
