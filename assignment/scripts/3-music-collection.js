@@ -3,36 +3,35 @@ console.log('***** Music Collection *****')
 let collection = [];
 
 // Update "addToCollection" to also take in parameter tracks.
-function addToCollection(title, artist, yearPublished, name, duration) {
+function addToCollection(title, artist, yearPublished, tracks) {
     let album = { // creates an object album with parameters of title artist and yearPublished
         title: title,
         artist: artist,
-        yearPublished: yearPublished
+        yearPublished: yearPublished,
+        tracks
+        }
+        collection.push(album); // pushes album items into collection array
+        return collection;
     }
-    let tracks = { // creates an object tracks with parameters name and duration
-        name: name,
-        duration: duration
-    }
-    collection.push(album); // pushes album items into collection array
-    collection.push(tracks); // pushes tracks items into collection array
-    return collection;
-}
+
 
 // these conosle logs add the parameters requeseted in addToCollection function to the collection array
-console.log(addToCollection("Hot Fuss", "The Killers", "2004", 'Mr. Brightside', '3:43'));
-console.log(addToCollection("Franz Ferdinand", "Franz Ferdinand", "2004", 'Take Me Out', '3:57'));
-console.log(addToCollection("The Joshua Tree", "U2", "1987", 'With or Without You', '4:56'));
-console.log(addToCollection("Black Holes and Revelations", "Muse", "2006", 'Starlight', '4:00'));
-console.log(addToCollection("The Bends", "Radiohead", "1995", 'My Iron Lung', '4:36'));
-console.log(addToCollection("The Blue Album", "Weezer", "1994", 'My Name is Jonas', '3:24'));
+console.log(addToCollection("Hot Fuss", "The Killers", "2004"));
+console.log(addToCollection("Franz Ferdinand", "Franz Ferdinand", "2004"));
+console.log(addToCollection("The Joshua Tree", "U2", "1987"));
+console.log(addToCollection("Black Holes and Revelations", "Muse", "2006"));
+console.log(addToCollection("The Bends", "Radiohead", "1995"));
+console.log(addToCollection("The Blue Album", "Weezer", "1994"));
 
 console.log(collection); // logs the completed collection
 
-// function to show the collection array in a more pretty fashion than just console logging it.
+// function to show the collection array in a more pretty fashion than just console logging it. Using a global/reusable array.
+// Update "showCollection" to display the list of tracks for each album with its "name" & "duration".
 function showCollection(array) {
-    console.log(array.length);
-    for (items of array) {
-        console.log(`${items.title} by ${items.artist}, published in ${items.yearPublished}.`);
+    console.log(array.length); // prints array length to console.
+    for (items of array) { // for items inside a global array
+        console.log(`${items.title} by ${items.artist}, published in ${items.yearPublished}: \n Song: ${items.name}, Duration: ${items.duration}.`);
+        // prints album info to console -> tracks info is not printing correctly YET.
     }
 } 
 
@@ -80,23 +79,20 @@ console.log(search('U2', '1987', 'With or Without You')); // console logs only c
 // will not console log incorrect queries. Only returns queried items that exist in collection array. 
 
 // add "tracks" to album. Each track should have a "name" & "duration".
-// --------------------After updating this in "addToCollection" the below function is no longer need ---------------------
-// function addTracksToCollection(name, duration) {
-//     let tracks = {
-//         name: name,
-//         duration: duration,
-//     }
-//     collection.push(tracks);
-//     return collection;
-// }
+function addTracksToCollection(name, duration) {
+    let tracks = {
+        name: name,
+        duration: duration,
+    }
+        collection.push(tracks);
+        return collection;
+}
 
-// Commented out lines 95-100 since they are no longer needed after adding the function "addTracksToCollection", and updating "addToCollection".
+// Adding Track names and durations using addTracksToCollection Function.
 
-// console.log(addTracksToCollection('Mr. Brightside', '3:43'));
-// console.log(addTracksToCollection('Take Me Out', '3:57'));
-// console.log(addTracksToCollection('With or Without You', '4:56'));
-// console.log(addTracksToCollection('Starlight', '4:00'));
-// console.log(addTracksToCollection('My Iron Lung', '4:36'));
-// console.log(addTracksToCollection('My Name is Jonas', '3:24'));
-
-// Update "showCollection" to display the list of tracks for each album with its "name" & "duration".
+console.log(addTracksToCollection('Mr. Brightside', '3:43'));
+console.log(addTracksToCollection('Take Me Out', '3:57'));
+console.log(addTracksToCollection('With or Without You', '4:56'));
+console.log(addTracksToCollection('Starlight', '4:00'));
+console.log(addTracksToCollection('My Iron Lung', '4:36'));
+console.log(addTracksToCollection('My Name is Jonas', '3:24'));
