@@ -62,3 +62,11 @@ function search(name, year) {
 }
 
 console.log(search('U2', '1987'));
+
+// add "tracks" to album. Each track should have a "name" & "duration".
+
+// Update "addToCollection" to also take in parameter tracks.
+
+// Update search to include "trackName".
+
+// Update "showCollection" to display the list of tracks for each album with its "name" & "duration".
