@@ -104,9 +104,17 @@ function search2(artist, year, song) {
         if (newQuery.song === item.tracks.name) {
             answer.push(`Song: ${item.tracks.name}`);
         }
+        else if (newQuery.artist === '') {
+            answer.push(collection);
+        }
+        else if (newQuery.year === '') {
+            answer.push(collection);
+        }
+        else if (newQuery.song === '') {
+            answer.push(collection);
+        }
     } return answer;
 }
-
 console.log(search2('U2', '1987', 'With or Without You'));
-console.log(search('White Stripes', '1995', 'Pinball Wizard'));
-console.log(search('', '', ''));
+console.log(search2('White Stripes', '1995', 'Pinball Wizard'));
+console.log(search2('', '', ''));
