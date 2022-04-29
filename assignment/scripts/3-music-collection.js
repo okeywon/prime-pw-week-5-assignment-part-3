@@ -54,20 +54,25 @@ console.log('Does the artist Pink exist in the Collection array?', findByArtist(
 // returns the answer array which will only include items located. Will not print items not located. Will print partial queries if they exist in collection!
 function search(name, year, trackName) {
     let answer = [];
+    let searchQuery = {
+        name: name,
+        year: year,
+        trackName: trackName
+    }
     for (let i = 0; i < collection.length; i++) {
-        if (name === collection[i].artist) {
-            answer.push(collection[i].artist);
+        if (searchQuery.name === collection[i].artist) {
+            answer.push(`Artist: ${collection[i].artist}`);
         }
-        if (year === collection[i].yearPublished) {
-            answer.push(collection[i].yearPublished);
+        if (searchQuery.year === collection[i].yearPublished) {
+            answer.push(`year: ${collection[i].yearPublished}`);
         }
-        if (trackName === collection[i].tracks.name) {
-            answer.push(collection[i].tracks.name);
+        if (searchQuery.trackName === collection[i].tracks.name) {
+            answer.push(`track name: ${collection[i].tracks.name}`);
         }
-        else if (name != collection[i].artist) {
+        else if (searchQuery.name != collection[i].artist) {
             answer.push();
         }
-        else if (year != collection[i].yearPublished) {
+        else if (searchQuery.year != collection[i].yearPublished) {
             answer.push();
         }
     }   return answer;
