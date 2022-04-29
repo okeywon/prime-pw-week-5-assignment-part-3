@@ -41,7 +41,7 @@ function findByArtist(artist) {
     let results = [];
     for (let i = 0; i < collection.length; i++) {
         if (artist === collection[i].artist) {
-            results.push(collection[i].artist);
+            results.push(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}. Song: ${collection[i].tracks.name}, Duration: ${collection[i].tracks.duration}.`);
             return results;
         }
     } return [];
