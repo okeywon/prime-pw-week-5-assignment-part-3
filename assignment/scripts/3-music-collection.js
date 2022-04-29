@@ -52,6 +52,7 @@ console.log('Does the artist Pink exist in the Collection array?', findByArtist(
 
 // function to search the collection array by name(artist name - string), year(string), and trackName(song name - string)
 // returns the answer array which will only include items located. Will not print items not located. Will print partial queries if they exist in collection!
+// returns the entire collectin if the query is blank.
 function search(name, year, trackName) {
     let answer = [];
     let searchQuery = {
