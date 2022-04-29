@@ -69,6 +69,9 @@ function search(name, year, trackName) {
         if (searchQuery.trackName === collection[i].tracks.name) {
             answer.push(`track name: ${collection[i].tracks.name}`);
         }
+        if (searchQuery.name === '') {
+            answer.push(collection);
+        }
         else if (searchQuery.name != collection[i].artist) {
             answer.push();
         }
@@ -80,3 +83,4 @@ function search(name, year, trackName) {
 
 console.log(search('U2', '1987', 'With or Without You'));
 console.log(search('White Stripes', '1995', 'Pinball Wizard'));
+console.log(search('', '', ''));
