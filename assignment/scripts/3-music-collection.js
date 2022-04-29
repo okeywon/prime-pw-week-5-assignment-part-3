@@ -117,4 +117,5 @@ function search2(artist, year, song) {
 }
 console.log(search2('U2', '1987', 'With or Without You'));
 console.log(search2('White Stripes', '1995', 'Pinball Wizard'));
+console.log(search2('Guns n Roses', '1980', 'Fat Bottom Girls'));
 console.log(search2('', '', ''));
