@@ -27,7 +27,7 @@ console.log(addToCollection("The Blue Album", "Weezer", "1994", "My Name is Jona
 // Prints array length and each album in the collection array to the console.
 function showCollection(array) {
     console.log(array.length);
-    for (items of array) {
+    for (let items of array) {
         console.log(`${items.title} by ${items.artist}, published in ${items.yearPublished}: \n Song: ${items.tracks.name}, Duration: ${items.tracks.duration}.`);
     }
 } 
@@ -83,5 +83,30 @@ function search(name, year, trackName) {
 }
 
 console.log(search('U2', '1987', 'With or Without You'));
+console.log(search('White Stripes', '1995', 'Pinball Wizard'));
+console.log(search('', '', ''));
+
+// same function as search but with a for of loop -> I'm kinda impressed with myself here!
+function search2(artist, year, song) {
+    let answer = [];
+    let newQuery = {
+        artist: artist,
+        year: year,
+        song: song
+    }
+    for (let item of collection) {
+        if (newQuery.artist === item.artist) {
+            answer.push(`Artist: ${item.artist}`);
+        }
+        if (newQuery.year === item.yearPublished) {
+            answer.push(`Year: ${item.yearPublished}`);
+        }
+        if (newQuery.song === item.tracks.name) {
+            answer.push(`Song: ${item.tracks.name}`);
+        }
+    } return answer;
+}
+
+console.log(search2('U2', '1987', 'With or Without You'));
 console.log(search('White Stripes', '1995', 'Pinball Wizard'));
 console.log(search('', '', ''));
