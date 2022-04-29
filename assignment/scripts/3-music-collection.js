@@ -47,12 +47,12 @@ function findByArtist(artist) {
     } return [];
 }
 
-console.log(findByArtist('U2'));
-console.log(findByArtist('Pink'));
+console.log('Does the artist U2 exist in the Collection array?', findByArtist('U2'));
+console.log('Does the artist Pink exist in the Collection array?', findByArtist('Pink'));
 
 // function to search the collection array by name(artist name - string), year(string), and trackName(song name - string)
 // returns the answer array which will only include items located. Will not print items not located. Will print partial queries if they exist in collection!
-function search(name, year, trackName) { // search function that takes three parameters name, year, song.
+function search(name, year, trackName) {
     let answer = [];
     for (let i = 0; i < collection.length; i++) {
         if (name === collection[i].artist) {
