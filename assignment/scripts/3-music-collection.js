@@ -3,25 +3,24 @@ console.log('***** Music Collection *****')
 let collection = [];
 
 // Update "addToCollection" to also take in parameter tracks.
-function addToCollection(title, artist, yearPublished, tracks) {
+function addToCollection(title, artist, yearPublished, name, duration) {
     let album = { // creates an object album with parameters of title artist and yearPublished
         title: title,
         artist: artist,
         yearPublished: yearPublished,
-        tracks
-        }
-        collection.push(album); // pushes album items into collection array
-        return collection;
+        tracks: {name: name, duration: duration}
     }
-
+    collection.push(album); // pushes album items into collection array
+    return collection;
+}
 
 // these conosle logs add the parameters requeseted in addToCollection function to the collection array
-console.log(addToCollection("Hot Fuss", "The Killers", "2004"));
-console.log(addToCollection("Franz Ferdinand", "Franz Ferdinand", "2004"));
-console.log(addToCollection("The Joshua Tree", "U2", "1987"));
-console.log(addToCollection("Black Holes and Revelations", "Muse", "2006"));
-console.log(addToCollection("The Bends", "Radiohead", "1995"));
-console.log(addToCollection("The Blue Album", "Weezer", "1994"));
+console.log(addToCollection("Hot Fuss", "The Killers", "2004", 'Mr. Brightside', '3:43'));
+console.log(addToCollection("Franz Ferdinand", "Franz Ferdinand", "2004", 'Take Me Out', '3:57'));
+console.log(addToCollection("The Joshua Tree", "U2", "1987", 'With or Without You', '4:56'));
+console.log(addToCollection("Black Holes and Revelations", "Muse", "2006", 'Starlight', '4:00'));
+console.log(addToCollection("The Bends", "Radiohead", "1995", 'My Iron Lung', '4:36'));
+console.log(addToCollection("The Blue Album", "Weezer", "1994", "My Name is Jonas", "3:24"));
 
 console.log(collection); // logs the completed collection
 
@@ -30,7 +29,7 @@ console.log(collection); // logs the completed collection
 function showCollection(array) {
     console.log(array.length); // prints array length to console.
     for (items of array) { // for items inside a global array
-        console.log(`${items.title} by ${items.artist}, published in ${items.yearPublished}: \n Song: ${items.name}, Duration: ${items.duration}.`);
+        console.log(`${items.title} by ${items.artist}, published in ${items.yearPublished}: \n Song: ${items.tracks.name}, Duration: ${items.tracks.duration}.`);
         // prints album info to console -> tracks info is not printing correctly YET.
     }
 } 
@@ -52,7 +51,7 @@ console.log(findByArtist('U2')); // shows that this will console log a correct i
 console.log(findByArtist('Pink')); // shows that this will log a blank array if incorrect
 
 // Update search to include "trackName"
-function search(name, year, song) { // search function that takes three parameters name, year, song.
+function search(name, year, trackName) { // search function that takes three parameters name, year, song.
     let answer = []; // empty array to push answers into only if correct.
     // variable to push answers into and console log
     for (let i = 0; i < collection.length; i++) { // loops through the entire collection
@@ -62,8 +61,8 @@ function search(name, year, song) { // search function that takes three paramete
         if (year === collection[i].yearPublished) { // if year queried is the same as a year in Collection array
             answer.push(collection[i].yearPublished); // yearPublished from collection array is pushed into answer to be logged at return
         } // another if statement to ensure loop continues
-        if (song === collection[i].name) { // if song queried is the same as the collection.name index
-            answer.push(collection[i].name); // correct song name is pushed into answer array
+        if (trackName === collection[i].tracks.name) { // if song queried is the same as the collection.name index
+            answer.push(collection[i].tracks.name); // correct song name is pushed into answer array
         } // multiple if statements works better in this case than several else if's as that stops the loop and I don't want to do that.
          // double else if in this case since I only want these to run if all the above if statements DON'T run.
         else if (name != collection[i].artist) { // if the above if statements are false and name queried doesn't equal a collection.artist index
@@ -77,22 +76,3 @@ function search(name, year, song) { // search function that takes three paramete
 
 console.log(search('U2', '1987', 'With or Without You')); // console logs only correct items if located in Collection as expected.
 // will not console log incorrect queries. Only returns queried items that exist in collection array. 
-
-// add "tracks" to album. Each track should have a "name" & "duration".
-function addTracksToCollection(name, duration) {
-    let tracks = {
-        name: name,
-        duration: duration,
-    }
-        collection.push(tracks);
-        return collection;
-}
-
-// Adding Track names and durations using addTracksToCollection Function.
-
-console.log(addTracksToCollection('Mr. Brightside', '3:43'));
-console.log(addTracksToCollection('Take Me Out', '3:57'));
-console.log(addTracksToCollection('With or Without You', '4:56'));
-console.log(addTracksToCollection('Starlight', '4:00'));
-console.log(addTracksToCollection('My Iron Lung', '4:36'));
-console.log(addTracksToCollection('My Name is Jonas', '3:24'));
