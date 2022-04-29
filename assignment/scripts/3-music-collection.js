@@ -23,8 +23,6 @@ console.log(addToCollection("Black Holes and Revelations", "Muse", "2006", 'Star
 console.log(addToCollection("The Bends", "Radiohead", "1995", 'My Iron Lung', '4:36'));
 console.log(addToCollection("The Blue Album", "Weezer", "1994", "My Name is Jonas", "3:24"));
 
-console.log(collection);
-
 // function to show the collection array in a more pretty fashion. Parameter is a global array.
 // Prints array length and each album in the collection array to the console.
 function showCollection(array) {
